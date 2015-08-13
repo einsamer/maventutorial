@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" 
+             version="2.5" 
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+             xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <display-name>Book Management</display-name>
+  <servlet>
+       <servlet-name>book-management</servlet-name>
+       <servlet-class>
+           org.springframework.web.servlet.DispatcherServlet
+       </servlet-class>
+       <init-param>
+			<param-name>contextClass</param-name>
+			<param-value>
+				org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>com.src.configuration.BookManagementConfiguration</param-value>
+		</init-param>
+       <load-on-startup>1</load-on-startup>
+   </servlet>
+	<context-param>
+		<param-name>book-management</param-name>
+		<param-value>/WEB-INF/book-management-servlet</param-value>
+	</context-param>
+	<servlet-mapping>
+	    <servlet-name>book-management</servlet-name>
+	    <url-pattern>/</url-pattern>
+	</servlet-mapping>
+   </web-app>
