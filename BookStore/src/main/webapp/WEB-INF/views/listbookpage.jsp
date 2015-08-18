@@ -6,17 +6,32 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="<c:url value = '/resources/css/main.css'/>"/>
+<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript" src = "<c:url value = '/resources/js/mainjs.js'/>"></script>
 <title>BOOKS!!!!!!</title>
 </head>
 <body>
 	<table class="table">
 		<c:forEach items="${listbook}" var="book">
-			<tr>
-				<td>${book.bookid}</td>
+			<tr class = "bookrow">
+				<td>${book.bookid}
+					<input type = "hidden" class = "bookimgurl" value = "${book.bookimgurl }"/>
+				</td>
 				<td>${book.bookauthor}</td>
 				<td>${book.bookname }</td>
+				<td><a href = "/BookStore/book/delete/${book.bookid}">
+								<button class = "btn btn-info">DELETE</button>
+								</a></td>
 			</tr>
 		</c:forEach>
 	</table>
+	<a href = "/BookStore/book/addbook">Click here to add new one</a>
+	
+	<div class = "img-container">
+		<img id = "img-show" alt="Default" src="<c:url value = '/resources/images/default.png'/>" />
+	</div>
 </body>
 </html>

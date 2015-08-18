@@ -1,0 +1,20 @@
+@CHARSET "UTF-8";
+/**
+*Einsamer
+*Css 
+*/
+
+body {
+	background-color: #A8FFFF;
+}
+
+.redrow{
+	background-color: #E07A7A;
+	color:white;
+}
+
+.img-container img{
+	
+	width: 300px;
+	height: 300px;
+}

@@ -13,7 +13,7 @@
  
 	<context:component-scan base-package="com.src.*" />
  
-	<bean
+<!-- 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
 			<value>/WEB-INF/views/</value>
@@ -28,11 +28,10 @@
       <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
       <property name="url" value="jdbc:mysql://localhost:3306/db_book"/>
       <property name="username" value="root"/>
-      <property name="password" value=""/>
+      <property name="password" value="123"/>
    </bean>
 
-   <!-- Definition for studentJDBCTemplate bean -->
-   <bean id="bookDAO" 
+  <bean id="bookDAO" 
       class="com.src.model.BookDAOImp">
    </bean>
    
@@ -55,6 +54,6 @@
     <bean id = "bookDAOImp" class = "com.src.model.BookDAOImp" >
     </bean>
    
-   <mvc:resources mapping="/resources/**" location="/resources/"  />
+   <mvc:resources mapping="/resources/**" location="/resources/"  /> -->
    <mvc:annotation-driven />
 </beans>

@@ -7,6 +7,6 @@
 <title>WELCOME</title>
 </head>
 <body>
-Welcome guest, <a href = "#">Click here to continue our site</a> 
+Welcome guest, <a href = "/BookStore/book/listbook">Click here to continue our site</a> 
 </body>
 </html>
