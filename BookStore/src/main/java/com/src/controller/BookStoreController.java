@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.src.entity.Book;
@@ -65,6 +66,32 @@ public class BookStoreController {
 		bookDAOImp.delete(id);
 
 		return "redirect:/book/listbook";
+	}
+	
+	/*@RequestMapping(value = "/update/{id}")
+	public ModelAndView updatebook( @PathVariable int id,
+									@PathVariable String name,
+									@PathVariable String author,
+									@PathVariable String imgurl){
+		ModelAndView updatepage = new ModelAndView("updatepage");
+		
+		Book book = new Book(id, name, author, imgurl);
+		
+		updatepage.addObject("book", book);
+		return updatepage;
+	}*/
+	
+	@RequestMapping(value = "/update")
+	public ModelAndView updatebook( @RequestParam(value = "id") int id,
+									@RequestParam(value = "name") String name,
+									@RequestParam(value = "author") String author,
+									@RequestParam(value = "url") String imgurl){
+		ModelAndView updatepage = new ModelAndView("updatepage");
+		
+		Book book = new Book(id, name, author, imgurl);
+		
+		updatepage.addObject("book", book);
+		return updatepage;
 	}
 
 }

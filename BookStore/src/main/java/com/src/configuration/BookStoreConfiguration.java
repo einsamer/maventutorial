@@ -17,6 +17,9 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
+import org.springframework.web.servlet.view.tiles3.TilesView;
+import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
 import com.src.entity.Book;
 import com.src.model.BookDAOImp;
@@ -41,8 +44,18 @@ public class BookStoreConfiguration extends WebMvcConfigurerAdapter {
 		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
 		resolver.setPrefix("/WEB-INF/views/");
 		resolver.setSuffix(".jsp");
+		resolver.setOrder(1);
 		return resolver;
 	}
+	@Bean
+	public TilesViewResolver getTilesViewResolver() {
+		TilesViewResolver view = new TilesViewResolver();
+		
+		view.setViewClass(TilesView.class);
+		view.setOrder(0);
+		return view;
+	}
+	
 
 	@Bean
 	public BookDAOImp getBookDAOImp() {
@@ -85,6 +98,14 @@ public class BookStoreConfiguration extends WebMvcConfigurerAdapter {
 		HibernateTransactionManager tx = new HibernateTransactionManager(sessionFactory);
 		System.out.println("Transaction Management!");
 		return tx;
+	}
+	
+	@Bean
+	public TilesConfigurer tilesConfigurer() {
+		TilesConfigurer tile = new TilesConfigurer();
+		tile.setDefinitions(new String[]{"/WEB-INF/tiles/tiles-definitions.xml"});
+		
+		return tile;
 	}
 	
 }

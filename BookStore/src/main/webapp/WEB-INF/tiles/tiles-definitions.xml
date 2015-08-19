@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC  
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+	<definition name="defaultTemplate" template="/WEB-INF/template/template.jsp">
+		<put-attribute name="title" value="DEFAULT TITLE" />
+		<put-attribute name="header" value="/WEB-INF/template/header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/template/menu.jsp" />
+		<put-attribute name="body" value="listbookpage" />
+		<put-attribute name="footer" value="/WEB-INF/template/footer.jsp" />
+	</definition>
+
+	<definition name="listbookpage" extends="defaultTemplate">
+		<put-attribute name="title" value="LIST BOOK" />
+		<put-attribute name="body" value = "/WEB-INF/views/listbookpage.jsp"></put-attribute>
+	</definition>
+
+
+	<definition name="newTemplate" template="/WEB-INF/template/template2.jsp">
+		<put-attribute name="title" value="DEFAULT TITLE" />
+		<put-attribute name="header" value="/WEB-INF/template/header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/template/menu.jsp" />
+		<put-attribute name = "body" value = "" />
+		<put-attribute name="footer" value="/WEB-INF/template/footer.jsp" />
+	</definition>
+	
+	<definition name = "welcomepage" extends="defaultTemplate">
+		<put-attribute name = "body" value = "/WEB-INF/views/welcomepage.jsp" />
+	</definition>
+
+</tiles-definitions>

@@ -5,7 +5,7 @@
 */
 
 body {
-	background-color: #A8FFFF;
+	background-color: #DDFFFF;
 }
 
 .redrow{
@@ -17,4 +17,9 @@ body {
 	
 	width: 300px;
 	height: 300px;
+}
+
+/* header config*/
+.header-img {
+	width:100%;
 }

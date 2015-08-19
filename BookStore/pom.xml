@@ -11,6 +11,7 @@
 	<properties>
 		<spring.version>4.0.1.RELEASE</spring.version>
 		<hbn.version>4.3.6.Final</hbn.version>
+		<tiles.version>3.0.5</tiles.version>
 	</properties>
 
 	<dependencies>
@@ -89,6 +90,11 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
 			<version>5.0.1.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-extras</artifactId>
+			<version>${tiles.version}</version>
 		</dependency>
 	</dependencies>
 	<build>

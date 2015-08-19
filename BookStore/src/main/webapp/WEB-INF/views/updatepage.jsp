@@ -23,7 +23,7 @@
 		<div class="row">
 			<div class="col-xs-2"></div>
 			<div class="col-xs-8">
-				<form:form method="post" action="/BookStore/book/addbook"
+				<form:form method="post" action="/BookStore/book/update"
 					modelAttribute="book">
 					<table>
 						<tr>
