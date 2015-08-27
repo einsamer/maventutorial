@@ -1,5 +1,6 @@
-<!--<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<!--<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,21 +12,22 @@ Welcome guest, <a href = "/BookStore/book/listbook">Click here to continue our s
 </body>
 </html>-->
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-<p>
-Contrary to popular belief, Lorem Ipsum is not simply random text. It
-has roots in a piece of classical Latin literature from 45 BC, making it
-over 2000 years old. Richard McClintock, a Latin professor at
-Hampden-Sydney College in Virginia, looked up one of the more obscure
-Latin words, consectetur, from a Lorem Ipsum passage, and going through
-the cites of the word in classical literature, discovered the
-undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33
-of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by
-Cicero, written in 45 BC. This book is a treatise on the theory of
-ethics, very popular during the Renaissance. The first line of Lorem
-Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section
-1.10.32. The standard chunk of Lorem Ipsum used since the 1500s is
-reproduced below for those interested. Sections 1.10.32 and 1.10.33 from
-"de Finibus Bonorum et Malorum" by Cicero are also reproduced in their
-exact original form, accompanied by English versions from the 1914
-translation by H. Rackham.
-</p>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<p>A good novel tells us the truth about its hero; but a bad novel
+	tells us the truth about its author. – Gilbert K. Chesterton</p>
+<p>There is a great deal of difference between an eager man who
+	wants to read a book and the tired man who wants a book to read.
+	– Gilbert K. Chesterton
+<p>A book is a version of the world. If you do not like it, ignore
+	it or offer your own version in return. – Salman Rushdie</p>
+	
+	<h1>Spring MVC internationalization example</h1>
+
+Language : <a href="?language=en">English</a>|<a href="?language=vn">Vietnamese</a>
+
+<h2>
+welcome.springmvc : <spring:message code="welcome.springmvc" text="default text" />
+</h2>
+
+Current Locale : ${pageContext.response.locale}
+	

@@ -3,32 +3,21 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<link rel="stylesheet" href="<c:url value = '/resources/css/main.css'/>" />
-<title>Insert title here</title>
-<style>
-.error {
-	color: red;
-}
-</style>
-<title>Add New Book</title>
-</head>
-<body>
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-2"></div>
-			<div class="col-xs-8">
+
+			<div class="col-xs-8" ng-app = "bookApp" >
 				<form:form method="post" action="/BookStore/book/update"
-					modelAttribute="book">
+					ng-controller = "bookCtrl"
+					modelAttribute="book" name = "updateForm" novalidate = "novalidate">
+					<form:hidden path="bookid" />
 					<table>
 						<tr>
 							<td>Book Name</td>
-							<td><form:input path="bookname" class="form-control" /> <form:errors
+							<td><form:input name = "bookname" ng-model = "bookname" path="bookname" class="form-control" required = "required"/>
+							 <span ng-show="updateForm.bookname.$error.required">Username is required.</span>
+							 <form:errors
 									path="bookname" class="error" /></td>
 						</tr>
 						<tr>
@@ -42,15 +31,32 @@
 									path="bookimgurl" class="error" /></td>
 						</tr>
 						<tr>
-							<td colspan="2" align="center"><input type="submit"
-								value="Create" /></td>
+							<td  align="left"><input type="submit"
+							ng-disabled = "updateForm.bookname.$dirty && updateForm.bookname.$invalid"
+								value="Create" />
+							</td>
+							<td  align="left">
+								<label class = "label label-danger" ng-click = "info()" >Click Me</label>
+							</td>
 						</tr>
 					</table>
 				</form:form>
+				<form name = "testForm" ng-controller = "bookCtrl" novalidate = "novalidate">
+					<input type = "text" name = "testInput" ng-model = "testInput" required = "required"/>
+					<span ng-show="testForm.testInput.$error.required">Username is required.</span>
+					<input type = "submit" ng-click = "info()" ng-disabled = "testForm.testInput.$dirty && testForm.testInput.$invalid" value = "Click On Me" />
+				</form>
 			</div>
 			<div class="col-xs-2"></div>
+			
 		</div>
 	</div>
-
-</body>
-</html>
+	<script>
+		var bookApp = angular.module("bookApp", []);
+		bookApp.controller ("bookCtrl", function($scope){
+			$scope.testInput = "";
+			$scope.info = function() {
+				alert("OK");
+			}
+		});
+	</script>

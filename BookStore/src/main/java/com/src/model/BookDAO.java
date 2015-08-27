@@ -9,4 +9,5 @@ public interface BookDAO {
 	public List<Book> getAllBook();
 	public void delete(int id);
 	public Book getBook (int id);
+	public List<Book> getAllBookWithKey(String key);
 }

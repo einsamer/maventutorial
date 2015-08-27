@@ -1,5 +1,6 @@
 package com.src.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -48,11 +49,33 @@ public class BookDAOImp implements BookDAO{
 		
 	}
 
+	@Transactional
 	public Book getBook(int id) {
 		// TODO Auto-generated method stub
 		Session session = this.sessionFactory.getCurrentSession();
 		Book book = (Book) session.load(Book.class, new Integer(id));
 		return book;
 	}
+
+	@Transactional
+	public List<Book> getAllBookWithKey(String key) {
+		// TODO Auto-generated method stub
+		Session session = this.sessionFactory.getCurrentSession();
+		List<Book> books = session.createQuery("from com.src.entity.Book").list();
+		List<Book> searchRs = new ArrayList<Book>();
+		
+		for(Book book : books) {
+			
+			String strCmp = book.getBookname().toLowerCase();
+			
+			if ( strCmp.contains(key.toLowerCase()) ) {
+				searchRs.add(book);
+			}
+		}
+		
+		return searchRs;
+	}
+
+	
 
 }

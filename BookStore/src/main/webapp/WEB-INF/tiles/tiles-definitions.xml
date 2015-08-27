@@ -14,7 +14,11 @@
 
 	<definition name="listbookpage" extends="defaultTemplate">
 		<put-attribute name="title" value="LIST BOOK" />
-		<put-attribute name="body" value = "/WEB-INF/views/listbookpage.jsp"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/listbookpage.jsp"></put-attribute>
+	</definition>
+	<definition name="listbookpageajs" extends="defaultTemplate">
+		<put-attribute name="title" value="LIST BOOK with ANGULARJS" />
+		<put-attribute name="body" value="/WEB-INF/views/listbookpageajs.jsp"></put-attribute>
 	</definition>
 
 
@@ -22,12 +26,30 @@
 		<put-attribute name="title" value="DEFAULT TITLE" />
 		<put-attribute name="header" value="/WEB-INF/template/header.jsp" />
 		<put-attribute name="menu" value="/WEB-INF/template/menu.jsp" />
-		<put-attribute name = "body" value = "" />
+		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/WEB-INF/template/footer.jsp" />
 	</definition>
-	
-	<definition name = "welcomepage" extends="defaultTemplate">
-		<put-attribute name = "body" value = "/WEB-INF/views/welcomepage.jsp" />
+
+	<definition name="welcomepage" extends="defaultTemplate">
+		<put-attribute name="title" value="WELCOME TO OUR PAGE!" />
+		<put-attribute name="body" value="/WEB-INF/views/welcomepage.jsp" />
 	</definition>
 
+	<definition name="updatepage" extends="defaultTemplate">
+		<put-attribute name="title" value="UPDATE PAGE" />
+		<put-attribute name="body" value="/WEB-INF/views/updatepage.jsp" />
+	</definition>
+
+	<definition name="loginpage" extends="defaultTemplate">
+		<put-attribute name="title" value="LOG IN" />
+		<put-attribute name="body" value="/WEB-INF/views/loginpage.jsp" />
+	</definition>
+	<definition name="successpage" extends="defaultTemplate">
+		<put-attribute name="title" value="LOG IN" />
+		<put-attribute name="body" value="/WEB-INF/views/successpage.jsp" />
+	</definition>
+	<definition name="personalpage" extends="defaultTemplate">
+		<put-attribute name="title" value="PERSONAL INFORMATION" />
+		<put-attribute name="body" value="/WEB-INF/views/personalpage.jsp" />
+	</definition>
 </tiles-definitions>

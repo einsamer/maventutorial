@@ -3,23 +3,77 @@
 *Einsamer
 *Css 
 */
-
-body {
-	background-color: #DDFFFF;
-}
-
-.redrow{
+.redrow {
 	background-color: #E07A7A;
-	color:white;
+	color: white;
 }
 
-.img-container img{
-	
+.img-container img {
 	width: 300px;
 	height: 300px;
 }
 
 /* header config*/
 .header-img {
-	width:100%;
+	width: 100%;
+}
+
+.topnav {
+	font-weight: 600;
+}
+
+.menu-item a {
+	font-weight: 600;
+}
+.language-item{
+	margin-top:15px;
+	color:#777;
+}
+
+.language-list li {
+	text-align: center;
+}
+/*intro-header part*/
+.intro-header {
+	background-image: url("/BookStore/resources/images/intro-bg.jpg");
+	background-size: cover;
+}
+
+.intro-content {
+	margin-top: 20%;
+	text-align: center;
+	margin-bottom:20%;
+}
+
+.intro-text {
+	color: white;
+	font-weight: 600;
+	text-shadow: 2px 2px #060606;
+}
+/*page-header*/
+.page-title{
+	font-weight: 600;
+	text-align: center;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.page-title-content{
+	margin-top:0;
+}
+
+/*end intro-header part*/
+/* css for error*/
+.error {
+	color: red;
+}
+
+.page-content {
+	margin-top: 30px;
+}
+
+/*menu page css*/
+.listpage-item{
+}
+.listpage-item>a:hover{
+	background-color: inherit!important;
 }
