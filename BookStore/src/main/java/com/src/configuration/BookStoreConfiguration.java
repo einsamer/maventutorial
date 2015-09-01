@@ -6,11 +6,14 @@ import javax.sql.DataSource;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.data.mongodb.core.MongoFactoryBean;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
@@ -26,19 +29,21 @@ import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesView;
 import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
+import com.mongodb.Mongo;
+import com.src.entity.Account;
 import com.src.entity.Book;
-import com.src.entity.User;
 import com.src.model.BookDAOImp;
+import com.src.model.BookMONImp;
 import com.src.model.UserDAOImp;
 
 @Configuration
 @ComponentScan(basePackages = "com.src.*") // instead of <context:component-scan
 											// base-package="com.src"/>
+@EnableMongoRepositories(basePackages = "com.src.*")
 @EnableWebMvc
 @EnableTransactionManagement(proxyTargetClass = true)
+@Import(SecurityConfiguration.class)
 public class BookStoreConfiguration extends WebMvcConfigurerAdapter {
-	
-	
 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -97,7 +102,7 @@ public class BookStoreConfiguration extends WebMvcConfigurerAdapter {
 				new LocalSessionFactoryBuilder(dataSource);
 		sessionFactory.addProperties(getHibernateProperties());
 		sessionFactory.addAnnotatedClasses(Book.class);
-		sessionFactory.addAnnotatedClasses(User.class);
+		sessionFactory.addAnnotatedClasses(Account.class);
 		
 		return sessionFactory.buildSessionFactory();
 	}
@@ -196,4 +201,30 @@ public class BookStoreConfiguration extends WebMvcConfigurerAdapter {
 		
 		return messageSource;
 	}
+	
+	/**
+	 * this part use mongodb to store data
+	 */
+	@Autowired
+	@Bean(name = "mongoTemplate")
+	public MongoTemplate getMongoTemplate(Mongo mongo) {
+		String dbName = "book";
+		MongoTemplate mongoTmp = new MongoTemplate(mongo, dbName);
+		
+		return mongoTmp;
+	}
+	
+	@Bean (name = "mongo")
+	public MongoFactoryBean getMongo() {
+		MongoFactoryBean mongo = new MongoFactoryBean();
+		mongo.setHost("localhost");
+		return mongo;
+	}
+	
+	@Bean (name = "bookMONImp")
+	public BookMONImp getBookDAOMongoDbImp() {
+		BookMONImp bookMONImp = new BookMONImp();
+		return bookMONImp;
+	}
+	
 }

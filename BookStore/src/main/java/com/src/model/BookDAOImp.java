@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.src.entity.Book;
 
-public class BookDAOImp implements BookDAO{
+public class BookDAOImp implements BookDAO<Book>{
 	
 	@Autowired
 	private SessionFactory sessionFactory;

@@ -52,4 +52,12 @@
 		<put-attribute name="title" value="PERSONAL INFORMATION" />
 		<put-attribute name="body" value="/WEB-INF/views/personalpage.jsp" />
 	</definition>
+	<definition name="listmongopage" extends="defaultTemplate">
+		<put-attribute name="title" value="MONGO BOOKS LIST" />
+		<put-attribute name="body" value="/WEB-INF/views/listmongopage.jsp" />
+	</definition>
+		<definition name="updatemongopage" extends="defaultTemplate">
+		<put-attribute name="title" value="MONGO BOOKS LIST" />
+		<put-attribute name="body" value="/WEB-INF/views/updatemongopage.jsp" />
+	</definition>
 </tiles-definitions>

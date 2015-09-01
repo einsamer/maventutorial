@@ -4,10 +4,10 @@ import java.util.List;
 
 import com.src.entity.Book;
 
-public interface BookDAO {
-	public void saveOrUpdate(Book book);
-	public List<Book> getAllBook();
+public interface BookDAO<T> {
+	public void saveOrUpdate(T book);
+	public List<T> getAllBook();
 	public void delete(int id);
-	public Book getBook (int id);
-	public List<Book> getAllBookWithKey(String key);
+	public T getBook (int id);
+	public List<T> getAllBookWithKey(String key);
 }

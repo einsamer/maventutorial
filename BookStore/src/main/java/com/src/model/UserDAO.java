@@ -1,8 +1,9 @@
 package com.src.model;
 
-import com.src.entity.User;
+import com.src.entity.Account;
 
 public interface UserDAO {
-	public User checkLogin(User user);
+	public Account checkLogin(Account user);
+	public Account findUserFromName(String username);
 
 }

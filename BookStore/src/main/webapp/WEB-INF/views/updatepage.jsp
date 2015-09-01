@@ -16,7 +16,7 @@
 						<tr>
 							<td>Book Name</td>
 							<td><form:input name = "bookname" ng-model = "bookname" path="bookname" class="form-control" required = "required"/>
-							 <span ng-show="updateForm.bookname.$error.required">Username is required.</span>
+							 <span ng-show="updateForm.bookname.$error.required">Book name is required.</span>
 							 <form:errors
 									path="bookname" class="error" /></td>
 						</tr>
@@ -41,22 +41,8 @@
 						</tr>
 					</table>
 				</form:form>
-				<form name = "testForm" ng-controller = "bookCtrl" novalidate = "novalidate">
-					<input type = "text" name = "testInput" ng-model = "testInput" required = "required"/>
-					<span ng-show="testForm.testInput.$error.required">Username is required.</span>
-					<input type = "submit" ng-click = "info()" ng-disabled = "testForm.testInput.$dirty && testForm.testInput.$invalid" value = "Click On Me" />
-				</form>
 			</div>
 			<div class="col-xs-2"></div>
 			
 		</div>
 	</div>
-	<script>
-		var bookApp = angular.module("bookApp", []);
-		bookApp.controller ("bookCtrl", function($scope){
-			$scope.testInput = "";
-			$scope.info = function() {
-				alert("OK");
-			}
-		});
-	</script>

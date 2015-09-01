@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.src.entity.User;
+import com.src.entity.Account;
 import com.src.model.UserDAOImp;
 
 @Controller
@@ -28,7 +28,7 @@ public class UserController {
 
 		if (model.get("userSession") == null) {
 
-			User user = new User();
+			Account user = new Account();
 			model.addAttribute("user", user);
 			return "loginpage";
 		} else {
@@ -37,11 +37,11 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String checkLogin(@Valid @ModelAttribute User user, BindingResult rs, ModelMap md) {
+	public String checkLogin(@Valid @ModelAttribute Account user, BindingResult rs, ModelMap md) {
 
 		String successpage = "successpage";
 
-		User userRs = userDAOImp.checkLogin(user);
+		Account userRs = userDAOImp.checkLogin(user);
 		ModelAndView view = new ModelAndView();
 
 		if (userRs.getRole() != 666) {
